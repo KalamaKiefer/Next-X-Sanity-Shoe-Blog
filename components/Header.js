@@ -7,10 +7,18 @@ export default function Header() {
         Llamas Best Hoop Shoes
       </h1>
       <div className="">
-        <a className="px-6 cursor-grab">Best of 2020</a>
-        <a className="px-6 cursor-grab">Best of 2021</a>
-        <a className="px-6 cursor-grab">Best of 2022</a>
-        <a className="px-6 cursor-grab">Best of 2023</a>
+        <a className="px-6 cursor-grab hover:text-cyan-400 ease-in-out duration-500">
+          Best of 2020
+        </a>
+        <a className="px-6 cursor-grab hover:text-cyan-400 ease-in-out duration-500">
+          Best of 2021
+        </a>
+        <a className="px-6 cursor-grab hover:text-cyan-400 ease-in-out duration-500">
+          Best of 2022
+        </a>
+        <a className="px-6 cursor-grab hover:text-cyan-400 ease-in-out duration-500">
+          Best of 2023
+        </a>
       </div>
     </div>
   );
