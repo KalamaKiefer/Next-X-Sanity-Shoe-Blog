@@ -10,6 +10,8 @@ import { groq } from "next-sanity";
 import ProductCard from "../components/ProductCard";
 import { useState } from "react";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
+import { BiGridVertical, BiGridHorizontal } from "react-icons/bi";
 
 export default function Home(props) {
   const { productdata, preview } = props;
@@ -25,15 +27,24 @@ export default function Home(props) {
   return (
     <>
       <Header />
-      <div className="px-20 py-20">
-        <button
-          className="border-2 border-red-500 rounded-md mt-4"
-          onClick={() => setFormat(!format)}
-        >
-          Switch View
-        </button>
+      <Hero
+        img={products.at(0).defaultProductVariant.images[0].asset}
+        name={products.at(0).title}
+      />
+      <div className="px-40 py-20">
         {format ? (
-          <div className="mt-20 text-2xl grid grid-cols-3 gap-48">
+          <BiGridVertical
+            onClick={() => setFormat(!format)}
+            className="cursor-grab w-20 h-12 mb-6"
+          />
+        ) : (
+          <BiGridHorizontal
+            onClick={() => setFormat(!format)}
+            className="cursor-grab w-20 h-12 mb-6"
+          />
+        )}
+        {format ? (
+          <div className="text-2xl grid grid-cols-3 gap-32">
             {products &&
               products.map((product) => (
                 <ProductCard
@@ -41,6 +52,7 @@ export default function Home(props) {
                   key={product.title}
                   description={product.blurb.en}
                   image={product.defaultProductVariant.images[0].asset}
+                  price={product.defaultProductVariant.price}
                 />
               ))}
           </div>
@@ -53,6 +65,7 @@ export default function Home(props) {
                   key={product.title}
                   description={product.blurb.en}
                   image={product.defaultProductVariant.images[0].asset}
+                  price={product.defaultProductVariant.price}
                 />
               ))}
           </div>
